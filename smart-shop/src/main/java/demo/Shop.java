@@ -1,54 +1,44 @@
 package demo;
 
 public abstract class Shop {
-	protected String name;
-	protected float price;
 	public abstract String getFlavor();
 	public abstract float getPrice();
 	public abstract String getName();
 }
 
 class ChocolateBakery extends Shop{
-	public ChocolateBakery(String name, float price) {
-		this.name = name;
-		this.price = price;
-	}
 	@Override
 	public String getFlavor() {
 		// TODO Auto-generated method stub
-		return "Chocolate";
+		return "Chocolate flavor";
 	}
 	@Override
 	public float getPrice() {
 		// TODO Auto-generated method stub
-		return price;
+		return (float) 25.00;
 	}
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return name;
+		return "Chocolate cake";
 	}
 	
 }
 class VanillaBakery extends Shop{
-	public VanillaBakery(String name, float price) {
-		this.name = name;
-		this.price = price;
-	}
 	@Override
 	public String getFlavor() {
 		// TODO Auto-generated method stub
-		return "Vanilla";
+		return "Vanilla flavor";
 	}
 	@Override
 	public float getPrice() {
 		// TODO Auto-generated method stub
-		return price;
+		return (float) 30.00;
 	}
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return name;
+		return "Vanilla cake";
 	}
 	
 }

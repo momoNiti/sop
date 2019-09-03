@@ -21,9 +21,8 @@ public class Run {
 	}
 	
 	@RequestMapping("/menu")
-	String menu(@RequestParam String name, @RequestParam float price) {
-//		return ShopFactory.getMenuCategory(name).getMenuDetail();
-		return ShopFactory.createChocolateBakery(name, price).getFlavor();
+	String menu(@RequestParam String flavor) {
+		return ShopFactory.getBakery(flavor).getFlavor();
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(Run.class, args);

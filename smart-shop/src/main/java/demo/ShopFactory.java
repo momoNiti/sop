@@ -2,10 +2,15 @@ package demo;
 
 public class ShopFactory {
 
-	public static Shop createChocolateBakery(String name, float price) {
-		return new ChocolateBakery(name, price);
-	}
-	public static Shop createVanillaBakery(String name, float price) {
-		return new VanillaBakery(name, price);
+	public static Shop getBakery(String flavor) {
+		if (flavor.equals("chocolate")) {
+			return new ChocolateBakery();
+		}
+		else if (flavor.equals("vanilla")) {
+			return new VanillaBakery();
+		}
+		else {
+			return null;
+		}
 	}
 }
