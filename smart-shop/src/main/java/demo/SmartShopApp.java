@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 @EnableAutoConfiguration
-public class Run {
+public class SmartShopApp {
 	@RequestMapping("/")
 	String home() {
 		return "Hello M world!";
@@ -25,7 +25,7 @@ public class Run {
 		return ShopFactory.getBakery(flavor).getFlavor();
 	}
 	public static void main(String[] args) {
-		SpringApplication.run(Run.class, args);
+		SpringApplication.run(SmartShopApp.class, args);
 	}
 
 }
