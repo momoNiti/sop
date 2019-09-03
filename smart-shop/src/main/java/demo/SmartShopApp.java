@@ -16,13 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableAutoConfiguration
 public class SmartShopApp {
 	@RequestMapping("/")
-	String home() {
-		return "Hello M world!";
+	Bakery[] home() {
+		return ListBakery.getAllBakery(); 
 	}
 	
 	@RequestMapping("/menu")
-	String menu(@RequestParam String flavor) {
-		return ShopFactory.getBakery(flavor).getFlavor();
+	
+	Bakery menu(@RequestParam int ID) {
+		return ListBakery.getBakery(ID);
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(SmartShopApp.class, args);
