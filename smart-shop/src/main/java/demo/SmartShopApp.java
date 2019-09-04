@@ -1,9 +1,13 @@
 package demo;
 
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,17 +20,34 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableAutoConfiguration
 public class SmartShopApp {
 	@RequestMapping("/")
-	Bakery[] home() {
-		return ListBakery.getAllBakery(); 
+	String home() {
+		return "Welcome to Bakery Smart Shop :) <br>" + "to see all product : /menu <br>"
+				+ "to see detail of product : /menu/{ID}   <-- ID of each product <br>"
+				+ "to add menu : /add{name}/{flavor}/{price} <-- name - name of product, flavor - flavor of product, price - price of product";
 	}
-	
+
 	@RequestMapping("/menu")
-	
-	Bakery menu(@RequestParam int ID) {
+	List<Bakery> menu() {
+		return ListBakery.getAllBakery();
+	}
+
+	@RequestMapping(value = "/menu/{ID}", method = RequestMethod.GET)
+	Bakery menu(@PathVariable int ID) {
 		return ListBakery.getBakery(ID);
 	}
+	
+	@RequestMapping(value = "/add/{name}/{flavor}/{price}", method = RequestMethod.GET)
+	 List<Bakery> add(@PathVariable String name, @PathVariable String flavor, @PathVariable float price) {
+		return ListBakery.addBakery(name, flavor, price);
+	}
+	
+	@RequestMapping(value = "/delete/{ID}", method = RequestMethod.GET)
+	List<Bakery> delete(@PathVariable int ID){
+		return ListBakery.deleteIdBakery(ID);
+	}
+	
+
 	public static void main(String[] args) {
 		SpringApplication.run(SmartShopApp.class, args);
 	}
-
 }
