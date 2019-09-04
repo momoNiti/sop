@@ -23,7 +23,8 @@ public class SmartShopApp {
 	String home() {
 		return "Welcome to Bakery Smart Shop :) <br>" + "to see all product : /menu <br>"
 				+ "to see detail of product : /menu/{ID}   <-- ID of each product <br>"
-				+ "to add menu : /add{name}/{flavor}/{price} <-- name - name of product, flavor - flavor of product, price - price of product";
+				+ "to add menu : /add{name}/{flavor}/{price} <-- name - name of product, flavor - flavor of product, price - price of product<br>"
+				+ "to delete menu : /delete/{ID} <-- ID of each product";
 	}
 
 	@RequestMapping("/menu")
