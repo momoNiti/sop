@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -50,5 +49,18 @@ public class SmartShopApp {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SmartShopApp.class, args);
+		User u = User.getInstance();
+//		initial
+		u.setFirstName("Niti");
+		u.setLastName("Jirakarnwuttikrai");
+		u.setPhone("0617689874");
+//		print check
+		System.out.println(u.getFirstName());
+		System.out.println(u.getLastName());
+		System.out.println(u.getPhone());
+//		check instance 
+		User a = User.getInstance();
+		System.out.println(a.getFirstName());
+		
 	}
 }
