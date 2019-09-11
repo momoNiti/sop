@@ -30,14 +30,14 @@ public class SmartShopApp {
 	}
 	@RequestMapping("/")
 	String home() {
-//		if(u.getFirstName()==null) {
-//			if(u.getLastName()==null) {
-//				if(u.getPhone()==null) {
-//					return "Please set your name and phone number <----" +
-//				"/set/{firstName}/{lastName}/{phone}";
-//				}
-//			}
-//		}
+		if(u.getFirstName()==null) {
+			if(u.getLastName()==null) {
+				if(u.getPhone()==null) {
+					return "Please set your name and phone number <----" +
+				"/set/{firstName}/{lastName}/{phone}";
+				}
+			}
+		}
 		return "Welcome to Bakery Smart Shop :) <br>" 
 		+ u.getFirstName() + "  " + u.getLastName() + "  " + u.getPhone() +"<br>" 
 		+ "to see all product : /menu <br>"
