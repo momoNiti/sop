@@ -30,14 +30,14 @@ public class SmartShopApp {
 	}
 	@RequestMapping("/")
 	String home() {
-		if(u.getFirstName()==null) {
-			if(u.getLastName()==null) {
-				if(u.getPhone()==null) {
-					return "Please set your name and phone number <----" +
-				"/set/{firstName}/{lastName}/{phone}";
-				}
-			}
-		}
+//		if(u.getFirstName()==null) {
+//			if(u.getLastName()==null) {
+//				if(u.getPhone()==null) {
+//					return "Please set your name and phone number <----" +
+//				"/set/{firstName}/{lastName}/{phone}";
+//				}
+//			}
+//		}
 		return "Welcome to Bakery Smart Shop :) <br>" 
 		+ u.getFirstName() + "  " + u.getLastName() + "  " + u.getPhone() +"<br>" 
 		+ "to see all product : /menu <br>"
@@ -61,7 +61,7 @@ public class SmartShopApp {
 		return new ResponseEntity<List<Bakery>>(ListBakery.addBakery(name, flavor, price), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/delete/{ID}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete/{ID}", method = RequestMethod.GET)
 	public ResponseEntity<List<Bakery>> delete(@PathVariable int ID){
 		return new ResponseEntity<List<Bakery>>(ListBakery.deleteIdBakery(ID), HttpStatus.OK);
 	}
@@ -69,18 +69,5 @@ public class SmartShopApp {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SmartShopApp.class, args);
-//		User u = User.getInstance();
-////		initial
-//		u.setFirstName("Niti");
-//		u.setLastName("Jirakarnwuttikrai");
-//		u.setPhone("0617689874");
-////		print check
-//		System.out.println(u.getFirstName());
-//		System.out.println(u.getLastName());
-//		System.out.println(u.getPhone());
-////		check instance 
-//		User a = User.getInstance();
-//		System.out.println(a.getFirstName());
-		
 	}
 }

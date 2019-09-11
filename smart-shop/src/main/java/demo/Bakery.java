@@ -1,6 +1,8 @@
 package demo;
 
-public class Bakery {
+import java.io.Serializable;
+
+public class Bakery implements Serializable {
 	private int ID;
 	private String name;
 	private String flavor;
